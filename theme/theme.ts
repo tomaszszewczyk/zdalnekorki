@@ -97,6 +97,9 @@ export const theme = createTheme( {
         primary: {
             main: primaryColor
         },
+        secondary: {
+            main: yellowColor
+        },
         text: {
             primary: greyColor
         }
@@ -105,6 +108,7 @@ export const theme = createTheme( {
         MuiButton: {
             defaultProps: {
               size: 'large',
+                color: 'secondary'
             },
             styleOverrides: {
                 root: {
@@ -114,12 +118,14 @@ export const theme = createTheme( {
                     ':focus': {
                         outline: 'black solid 2px',
                         outlineOffset: '3px',
-                        borderRadius: '2px',
+                        borderRadius: '200px',
                     }
                 },
                 contained: {
-                    color: primaryColor,
-                    backgroundColor: '#ffe473'
+
+                },
+                text: {
+                    color: primaryColor
                 }
             },
         },
