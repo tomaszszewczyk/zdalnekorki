@@ -11,16 +11,15 @@ interface Task {
 
 const Task: FC<Task> = (props) => {
     return (
-        <Card sx={{width: '100%', p: '32px'}}>
+        <Card sx={{width: '100%', p: '48px'}}>
             <Grid container spacing={'32px'}>
                 <Grid item lg={6}>
-                    <Stack height={'100%'} justifyContent={'center'}>
-                        <Typography variant={'h2'}>{props.title}</Typography>
-                        <Typography variant={'h6'}>{props.author}</Typography>
-                        <Typography variant={'h6'}>{props.date}</Typography>
+                    <Stack height={'100%'} justifyContent={'center'} gap={'10px'}>
+                        <Typography variant={'h3'}>{props.title}</Typography>
+                        <Typography variant={'subtitle1'}>{props.author}, {props.date}</Typography>
                     </Stack>
                 </Grid>
-                <Grid item lg={6}>
+                <Grid item lg={6} sx={{p: '16px'}}>
                     <iframe width="100%"
                             height='300px'
                             src={props.src}
@@ -30,7 +29,7 @@ const Task: FC<Task> = (props) => {
                             allowFullScreen/>
                 </Grid>
                 <Grid item lg={12}>
-                    <Typography>
+                    <Typography sx={{columnCount: '2', columnGap: '32px'}}>
                         {props.body}
                     </Typography>
                 </Grid>
@@ -41,7 +40,7 @@ const Task: FC<Task> = (props) => {
 
 export const Tasks = () => {
     return (
-        <Box pt={'100px'}>
+        <Box pt={'128px'}>
             <Container maxWidth={'xl'}>
                 <Stack gap={'32px'}>
                     <Task title={'Procenty, matura 2018, zadanie 4'}

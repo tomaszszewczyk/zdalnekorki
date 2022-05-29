@@ -8,12 +8,12 @@ interface ReferralCardProps {
 
 const ReferralCard: FC<ReferralCardProps> = ({text, author}) => {
     return (
-        <Card sx={{minHeight: '100%', maxWidth: '300px', p: '16px'}}>
+        <Card sx={{minHeight: '100%', maxWidth: '350px', p: '32px'}}>
             <Stack gap={'16px'} height={'100%'} justifyContent={'space-between'}>
                 <Typography>
                     {text}
                 </Typography>
-                <Typography alignSelf={'flex-end'}>
+                <Typography variant={'subtitle2'} alignSelf={'flex-end'}>
                     {author}
                 </Typography>
             </Stack>
@@ -23,7 +23,7 @@ const ReferralCard: FC<ReferralCardProps> = ({text, author}) => {
 
 export const Referrals = () => {
     return (
-        <Box pt={'100px'} id={'opinie'}>
+        <Box pt={'128px'} id={'opinie'}>
             <Container maxWidth={'xl'}>
                 <Typography variant={'h2'} pb={'64px'}>Opinie</Typography>
                 <Stack gap={'32px'}>

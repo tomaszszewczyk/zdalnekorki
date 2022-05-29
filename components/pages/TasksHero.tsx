@@ -1,8 +1,7 @@
 import {Container, Stack, Typography, useMediaQuery} from "@mui/material";
 import {Box, useTheme} from "@mui/system";
 import Image from 'next/image.js'
-import heroPicture from '../../public/img/hero.svg'
-import {ButtonLink} from "../navigation/ButtonLink";
+import heroPicture from '../../public/img/zadania-hero.png'
 
 const Slogan = () => {
     const theme = useTheme()
@@ -10,7 +9,7 @@ const Slogan = () => {
 
     return (
         <Typography variant={'h1'} minWidth={small ? 0 : 410}>
-            Zbiór zadań online
+            Zbiór zadań
         </Typography>
     )
 }
@@ -26,7 +25,7 @@ const Comment = () => {
 const Picture = () => {
     return (
         <Box flexShrink={0}>
-            <Image src={heroPicture} alt={'Stanowsko pracy księgowego'}/>
+            <Image src={heroPicture} alt={'Dziewczyna pracująca na komputerze'}/>
         </Box>
     )
 }
@@ -37,8 +36,8 @@ export const TasksHero = () => {
 
     return (
         <Container maxWidth={'xl'}>
-            <Stack pt='150px' direction={small ? 'column' : 'row'} alignItems={'center'} gap={small ? '32px' : '0'}>
-                <Stack gap={'32px'} order={2} flex={1}>
+            <Stack pt='50px' direction={small ? 'column' : 'row'} alignItems={'center'} gap={'32px'}>
+                <Stack gap={'12px'} order={2} flex={1}>
                     <Slogan/>
                     <Comment/>
                 </Stack>

@@ -1,7 +1,7 @@
 import {Container, Stack, Typography, useMediaQuery} from "@mui/material";
 import {Box, useTheme} from "@mui/system";
 import Image from 'next/image.js'
-import heroPicture from '../../public/img/hero.svg'
+import heroPicture from '../../public/img/hero.png'
 import {ButtonLink} from "../navigation/ButtonLink";
 
 const Slogan = () => {
@@ -16,9 +16,13 @@ const Slogan = () => {
 }
 
 const Comment = () => {
+    const theme = useTheme()
+    const small = useMediaQuery(theme.breakpoints.down('md'))
+
     return (
-        <Typography component={'p'} variant={'subtitle1'}>
-            Z nami zdasz!
+        <Typography variant={'subtitle1'} minWidth={small ? 0 : 410}>
+            Matma to dla Ciebie problem? Boisz się że nie zdasz matury? <br/>
+            Z moimi korepetycjami uda Ci się rozwiązać każde zadanie. Komfortowo z domu :)
         </Typography>
     )
 }
@@ -35,10 +39,8 @@ const CTA = () => {
 
 const Picture = () => {
     return (
-        <Box flexShrink={0}
-             sx={{}}
-        >
-            <Image src={heroPicture} alt={'Stanowsko pracy księgowego'}/>
+        <Box flexShrink={0} sx={{}}>
+            <Image src={heroPicture} alt={'Dziewczyna pracująca na komputerze'}/>
         </Box>
     )
 }
@@ -49,11 +51,13 @@ export const Hero = () => {
 
     return (
         <Container maxWidth={'xl'}>
-            <Stack pt='150px' direction={small ? 'column' : 'row'} alignItems={'center'} gap={small ? '32px' : '0'}>
-                <Stack gap={'32px'} order={2} flex={1}>
+            <Stack pt='50px' direction={small ? 'column' : 'row'} alignItems={'center'} gap={'32px'}>
+                <Stack gap={'12px'} order={2} flex={1} alignItems={'flex-start'}>
                     <Slogan/>
                     <Comment/>
-                    <CTA/>
+                    <Stack alignItems={'flex-start'} pt={'32px'}>
+                        <CTA/>
+                    </Stack>
                 </Stack>
 
                 <Box order={small ? 1 : 3} flex={1}>
