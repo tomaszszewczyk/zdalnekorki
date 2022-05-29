@@ -1,0 +1,81 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zdalnekorki-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: zdalnekorki
+  template:
+    metadata:
+      labels:
+        app: zdalnekorki
+    spec:
+      containers:
+        - name: zdalnekorki-pod
+          image: ghcr.io/tomaszszewczyk/zdalnekorki:v0.0.1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+      imagePullSecrets:
+        - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: zdalnekorki-svc
+spec:
+  ports:
+    - port: 80
+      targetPort: 3000
+      protocol: TCP
+  selector:
+    app: zdalnekorki
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: zdalnekorki-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirectscheme@kubernetescrd
+spec:
+  rules:
+    - host: zdalnekorki.online
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: zdalnekorki-svc
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - zdalnekorki.pl
+      secretName: zdalnekorki-com
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: zdalnekorki-cert
+spec:
+  secretName: zdalnekorki-com
+  dnsNames:
+    - zdalnekorki.pl
+  issuerRef:
+    name: letsencrypt-prod
+    kind: Issuer
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirectscheme
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
