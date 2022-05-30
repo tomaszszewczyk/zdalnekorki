@@ -19,7 +19,7 @@ const Task: FC<Task> = (props) => {
                 <Grid item lg={6} md={12}>
                     <Stack height={'100%'} justifyContent={'center'} gap={'10px'}>
                         <Typography variant={'h3'}>{props.title}</Typography>
-                        <Typography variant={'subtitle1'}>{props.author}, {props.date}</Typography>
+                        <Typography variant={'subtitle1'} component={'p'}>{props.author}, {props.date}</Typography>
                     </Stack>
                 </Grid>
                 <Grid item lg={6} md={12} sx={{p: '16px'}}>

@@ -7,7 +7,7 @@ import logo from '../../public/img/logo_white.svg'
 const Contents = () => {
     return (
         <Stack gap={'64px'}>
-            <Grid container justifyContent={'center'} spacing={'8px'}>
+            <Grid container justifyContent={'center'} spacing={'8px'} alignItems={'center'}>
                 <Grid item>
                     <Typography sx={{textAlign: 'center'}}>
                         Zaprojektowane i wdrożone przez

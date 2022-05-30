@@ -20,7 +20,7 @@ const Comment = () => {
     const small = useMediaQuery(theme.breakpoints.down('md'))
 
     return (
-        <Typography variant={'subtitle1'} minWidth={small ? 0 : 410}>
+        <Typography variant={'subtitle1'} component='p' minWidth={small ? 0 : 410}>
             Matma to dla Ciebie problem? Boisz się że nie zdasz matury? <br/>
             Z moimi korepetycjami uda Ci się rozwiązać każde zadanie. Komfortowo z domu :)
         </Typography>

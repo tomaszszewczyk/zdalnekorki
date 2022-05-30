@@ -13,7 +13,7 @@ const ReferralCard: FC<ReferralCardProps> = ({text, author}) => {
                 <Typography>
                     {text}
                 </Typography>
-                <Typography variant={'subtitle2'} alignSelf={'flex-end'}>
+                <Typography variant={'subtitle2'} component='p' alignSelf={'flex-end'}>
                     {author}
                 </Typography>
             </Stack>

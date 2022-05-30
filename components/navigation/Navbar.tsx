@@ -17,8 +17,8 @@ export const Navbar = () => {
                                    url={'/'}/>
                     </Box>
                     <Navigation links={[
-                        {href: '#cennik', children: 'Cennik'},
-                        {href: '#opinie', children: 'Opinie'},
+                        {href: '/#cennik', children: 'Cennik'},
+                        {href: '/#opinie', children: 'Opinie'},
                         {href: '/zadania', children: 'Zadania', label: 'Zobacz zadania'},
                         {href: '/kontakt', children: 'Kontakt', variant: 'contained'},
                     ]}/>
